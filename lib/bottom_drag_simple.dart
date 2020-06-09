@@ -1,12 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class BottomDrag extends StatefulWidget {
-  @override
-  _BottomDragState createState() => _BottomDragState();
-}
-
-class _BottomDragState extends State<BottomDrag> {
+class BottomDragSimple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
