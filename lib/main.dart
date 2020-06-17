@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_samples/bottom_drag_simple.dart';
+import 'package:flutter_widget_samples/bubble_simple.dart';
 import 'package:flutter_widget_samples/popup_filter_simple.dart';
 import 'package:flutter_widget_samples/select_simple.dart';
 import 'package:flutter_widget_samples/tab_bar_simple.dart';
@@ -42,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'Dropdown': (_) => SelectSimple(),
     'Compact TabBar': (_) => TabBarSimple(),
     'Popup filter': (_) => PopupFilterSimple(),
+    'Bubble': (_) => BubbleSimple(),
   };
 
   int value;
