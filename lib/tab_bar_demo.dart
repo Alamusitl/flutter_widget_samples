@@ -3,13 +3,12 @@ import 'package:flutter/widgets.dart';
 
 import 'widgets/tab_bar.dart';
 
-class TabBarSimple extends StatefulWidget {
+class TabBarDemo extends StatefulWidget {
   @override
-  _TabBarSimpleState createState() => _TabBarSimpleState();
+  _TabBarDemoState createState() => _TabBarDemoState();
 }
 
-class _TabBarSimpleState extends State<TabBarSimple>
-    with SingleTickerProviderStateMixin {
+class _TabBarDemoState extends State<TabBarDemo> with SingleTickerProviderStateMixin {
   TabController tabController;
 
   List<String> tabs = ['First', 'Second', 'Three'];

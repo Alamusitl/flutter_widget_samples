@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_samples/widgets/popup_filter.dart';
 
-class PopupFilterSimple extends StatelessWidget {
+class PopupFilterDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

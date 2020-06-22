@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_samples/widgets/bubble.dart';
 
-class BubbleSimple extends StatefulWidget {
+class BubbleDemo extends StatefulWidget {
   @override
-  _BubbleSimpleState createState() => _BubbleSimpleState();
+  _BubbleDemoState createState() => _BubbleDemoState();
 }
 
-class _BubbleSimpleState extends State<BubbleSimple> {
+class _BubbleDemoState extends State<BubbleDemo> {
   BubbleIndicatorPosition position;
 
   @override

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_samples/bottom_drag_simple.dart';
-import 'package:flutter_widget_samples/bubble_simple.dart';
-import 'package:flutter_widget_samples/popup_filter_simple.dart';
-import 'package:flutter_widget_samples/select_simple.dart';
-import 'package:flutter_widget_samples/tab_bar_simple.dart';
+import 'package:flutter_widget_samples/ball_demo.dart';
+import 'package:flutter_widget_samples/bottom_drag_demo.dart';
+import 'package:flutter_widget_samples/bubble_demo.dart';
+import 'package:flutter_widget_samples/popup_filter_demo.dart';
+import 'package:flutter_widget_samples/select_demo.dart';
+import 'package:flutter_widget_samples/tab_bar_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -39,11 +40,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Map<String, Function> routes = {
-    'Bottom Drag': (_) => BottomDragSimple(),
-    'Dropdown': (_) => SelectSimple(),
-    'Compact TabBar': (_) => TabBarSimple(),
-    'Popup filter': (_) => PopupFilterSimple(),
-    'Bubble': (_) => BubbleSimple(),
+    'Bottom Drag': (_) => BottomDragDemo(),
+    'Dropdown': (_) => SelectDemo(),
+    'Compact TabBar': (_) => TabBarDemo(),
+    'Popup filter': (_) => PopupFilterDemo(),
+    'Bubble': (_) => BubbleDemo(),
+    'Run Ball': (_) => RunBallDemo(),
   };
 
   int value;

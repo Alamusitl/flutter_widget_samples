@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class BottomDragSimple extends StatelessWidget {
+class BottomDragDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -20,8 +20,7 @@ class DragContainer extends StatefulWidget {
   _DragContainerState createState() => _DragContainerState();
 }
 
-class _DragContainerState extends State<DragContainer>
-    with SingleTickerProviderStateMixin {
+class _DragContainerState extends State<DragContainer> with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _animation;
 
@@ -46,8 +45,7 @@ class _DragContainerState extends State<DragContainer>
     super.dispose();
   }
 
-  GestureRecognizerFactoryWithHandlers<VerticalDragGestureRecognizer>
-      getRecognizer() {
+  GestureRecognizerFactoryWithHandlers<VerticalDragGestureRecognizer> getRecognizer() {
     return GestureRecognizerFactoryWithHandlers(
         () => VerticalDragGestureRecognizer(), this._initializer);
   }

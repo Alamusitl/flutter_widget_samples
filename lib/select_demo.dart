@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SelectSimple extends StatefulWidget {
+class SelectDemo extends StatefulWidget {
   @override
-  _SelectSimpleState createState() => _SelectSimpleState();
+  _SelectDemoState createState() => _SelectDemoState();
 }
 
-class _SelectSimpleState extends State<SelectSimple> {
+class _SelectDemoState extends State<SelectDemo> {
   int value;
 
   @override
