@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_widget_samples/ball_demo.dart';
 import 'package:flutter_widget_samples/bottom_drag_demo.dart';
 import 'package:flutter_widget_samples/bubble_demo.dart';
+import 'package:flutter_widget_samples/data_table_demo.dart';
+import 'package:flutter_widget_samples/localization.dart';
 import 'package:flutter_widget_samples/popup_filter_demo.dart';
 import 'package:flutter_widget_samples/select_demo.dart';
 import 'package:flutter_widget_samples/tab_bar_demo.dart';
@@ -16,6 +20,26 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      localizationsDelegates: [
+        DemoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale.fromSubtags(languageCode: 'en'),
+        const Locale.fromSubtags(languageCode: 'zh'), // generic Chinese 'zh'
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hans'), // generic simplified Chinese 'zh_Hans'
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hant'), // generic traditional Chinese 'zh_Hant'
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'), // 'zh_Hans_CN'
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW'), // 'zh_Hant_TW'
+        const Locale.fromSubtags(
+            languageCode: 'zh', scriptCode: 'Hant', countryCode: 'HK'), // 'zh_Hant_HK'
+      ],
       home: MyHomePage(),
       onGenerateRoute: (RouteSettings settings) {
         String name = settings.name;
@@ -46,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'Popup filter': (_) => PopupFilterDemo(),
     'Bubble': (_) => BubbleDemo(),
     'Run Ball': (_) => RunBallDemo(),
+    'Data Table': (_) => DataTableDemo(),
   };
 
   int value;
