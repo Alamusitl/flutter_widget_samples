@@ -67,6 +67,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
             numeric: true,
             onSort: (index, ascending) => _sort((_User user) => user.weight, index, ascending),
           ),
+          DataColumn(label: Text('操作')),
         ],
         sortColumnIndex: _sortColumnIndex,
         sortAscending: _sortAscending,
@@ -74,7 +75,9 @@ class _DataTableDemoState extends State<DataTableDemo> {
         onSelectAll: (selectAll) {
           _dataSource.selectAll(selectAll);
         },
-        onPageChanged: (page) {},
+        onPageChanged: (page) {
+          print('$page');
+        },
         rowsPerPage: rowPerPage,
         availableRowsPerPage: [5, 10, 20],
         onRowsPerPageChanged: (perPage) {
@@ -133,6 +136,9 @@ class _UserDataSource extends DataTableSource {
         DataCell(Text('${data[index].sex}')),
         DataCell(Text('${data[index].address}')),
         DataCell(Text('${data[index].weight}')),
+        DataCell(
+          FlatButton(onPressed: () {}, child: Text('日志')),
+        )
       ],
     );
   }
