@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' hide TabBar;
 import 'package:flutter/widgets.dart';
 
-import 'widgets/tab_bar.dart';
+import '../widgets/tab_bar.dart';
 
 class TabBarDemo extends StatefulWidget {
   @override

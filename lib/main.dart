@@ -1,14 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_widget_samples/ball_demo.dart';
-import 'package:flutter_widget_samples/bottom_drag_demo.dart';
-import 'package:flutter_widget_samples/bubble_demo.dart';
-import 'package:flutter_widget_samples/data_table_demo.dart';
+import 'package:flutter_widget_samples/config.dart';
 import 'package:flutter_widget_samples/localization.dart';
-import 'package:flutter_widget_samples/popup_filter_demo.dart';
-import 'package:flutter_widget_samples/select_demo.dart';
-import 'package:flutter_widget_samples/tab_bar_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,16 +57,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final Map<String, Function> routes = {
-    'Bottom Drag': (_) => BottomDragDemo(),
-    'Dropdown': (_) => SelectDemo(),
-    'Compact TabBar': (_) => TabBarDemo(),
-    'Popup filter': (_) => PopupFilterDemo(),
-    'Bubble': (_) => BubbleDemo(),
-    'Run Ball': (_) => RunBallDemo(),
-    'Data Table': (_) => DataTableDemo(),
-  };
-
   int value;
 
   @override
@@ -83,11 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.separated(
         itemBuilder: (context, index) {
-          String route = routes.keys.toList()[index];
-          String pageName = routes.keys.toList()[index];
+          String route = Config.routes.keys.toList()[index];
+          String pageName = Config.routes.keys.toList()[index];
           return ListTile(
             onTap: () {
-              Navigator.pushNamed(context, route, arguments: routes[route]);
+              Navigator.pushNamed(context, route, arguments: Config.routes[route]);
             },
             title: Text(
               pageName,
@@ -99,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         separatorBuilder: (context, index) {
           return Divider();
         },
-        itemCount: routes.length,
+        itemCount: Config.routes.length,
       ),
     );
   }
