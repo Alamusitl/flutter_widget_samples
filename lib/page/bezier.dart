@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CurvePage extends StatelessWidget {
+class BezierCurvePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(

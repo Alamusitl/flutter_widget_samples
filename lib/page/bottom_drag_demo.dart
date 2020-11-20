@@ -21,33 +21,23 @@ class DragContainer extends StatefulWidget {
 }
 
 class _DragContainerState extends State<DragContainer> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation _animation;
+  Offset offset = Offset(0.0, 0.0);
 
-  double offsetDistance = 0.0;
-
-  @override
-  initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(microseconds: 250),
-    );
-    final CurvedAnimation curvedAnimation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    );
-  }
-
-  @override
-  dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  GestureRecognizerFactoryWithHandlers<VerticalDragGestureRecognizer> getRecognizer() {
+  GestureRecognizerFactoryWithHandlers<VerticalDragGestureRecognizer> getVerticalRecognizer() {
     return GestureRecognizerFactoryWithHandlers(
         () => VerticalDragGestureRecognizer(), this._initializer);
+  }
+
+  GestureRecognizerFactoryWithHandlers<HorizontalDragGestureRecognizer> getHorizontalRecognizer() {
+    return GestureRecognizerFactoryWithHandlers(() => HorizontalDragGestureRecognizer(),
+        (recognizer) {
+      recognizer
+        ..onStart = _onStart
+        ..onCancel = _onCancel
+        ..onDown = _onDown
+        ..onUpdate = _onUpdate
+        ..onEnd = _onEnd;
+    });
   }
 
   void _initializer(VerticalDragGestureRecognizer recognizer) {
@@ -76,8 +66,8 @@ class _DragContainerState extends State<DragContainer> with SingleTickerProvider
 
   ///垂直移动
   void _onUpdate(DragUpdateDetails details) {
-    print('垂直移动${details.delta}');
-    offsetDistance = offsetDistance + details.delta.dy;
+    offset = offset + details.delta;
+    print('移动${details.delta} - $offset');
     setState(() {});
   }
 
@@ -89,9 +79,12 @@ class _DragContainerState extends State<DragContainer> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: Offset(0.0, offsetDistance),
+      offset: offset,
       child: RawGestureDetector(
-        gestures: {VerticalDragGestureRecognizer: getRecognizer()},
+        gestures: {
+          VerticalDragGestureRecognizer: getVerticalRecognizer(),
+          HorizontalDragGestureRecognizer: getHorizontalRecognizer(),
+        },
         child: Container(
           width: 100.0,
           height: 100.0,

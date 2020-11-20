@@ -32,22 +32,7 @@ class _TabBarDemoState extends State<TabBarDemo> with SingleTickerProviderStateM
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: null,
-        title:
-//        Center(
-//          child: Wrap(
-//            children: tabs.map((item) {
-//              return Padding(
-//                padding: const EdgeInsets.all(8.0),
-//                child: InkWell(
-//                  child: Text(item),
-//                  onTap: () {},
-//                ),
-//              );
-//            }).toList(),
-//          ),
-//        ),
-
-            TabBar(
+        title: TabBar(
           controller: tabController,
           labelStyle: TextStyle(fontSize: 20.0),
           unselectedLabelStyle: TextStyle(fontSize: 16.0),
